@@ -13,25 +13,19 @@ public class LogService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
-    private boolean stop;
-    public String DateNowStr;
-
 
     public void onCreate(){
         super.onCreate();
         log("Старт сервиса");
-        stop = false;
         new Thread(new Runnable() {
             Date d;
             SimpleDateFormat format1 = new SimpleDateFormat("hh:mm:ss");
-            String date = format1.format(Calendar.getInstance().getTime());
             @Override
             public void run() {
                 int i = 0;
                 while (true){
                     d = new Date();
-                    DateNowStr = (format1.format(d));
-                    log("Текущее время: " + DateNowStr);
+                    log("Текущее время: " + format1.format(d));
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {

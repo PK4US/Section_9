@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
@@ -27,8 +31,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         TextView textViewTime = findViewById(R.id.tv_time);
         LogService logService = new LogService();
-        System.out.println("____________________________________________________________________________________________________" + logService.DateNowStr);
-        textViewTime.setText(logService.DateNowStr);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+        String date = sdf.format(Calendar.getInstance().getTime());
+        textViewTime.setText(date);
     }
 }
 
