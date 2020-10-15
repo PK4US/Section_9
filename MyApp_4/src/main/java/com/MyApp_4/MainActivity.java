@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startService(service);
     }
 
-
-    // не работает. При нажатии выводит нулл
     @Override
     public void onClick(View view) {
         TextView textViewTime = findViewById(R.id.tv_time);
@@ -37,4 +35,3 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textViewTime.setText(date);
     }
 }
-
